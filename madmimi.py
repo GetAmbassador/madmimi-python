@@ -32,7 +32,7 @@ import csv
 try:
     from cStringIO import StringIO
 except ImportError:
-    from StringIO import StringIO
+    from io import StringIO
 
 from urllib import quote, urlencode
 from urllib2 import urlopen

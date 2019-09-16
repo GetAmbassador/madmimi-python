@@ -29,13 +29,9 @@ __maintainer__ = 'jordan.bouvier@analytemedia.com (Jordan Bouvier)'
 
 import csv
 
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from io import StringIO
-
-from urllib import quote, urlencode
-from urllib2 import urlopen
+from io import StringIO
+from urllib.parse import quote, urlencode
+from urllib.request import urlopen
 
 try:
     from xml.etree import cElementTree as ElementTree
@@ -73,7 +69,7 @@ class MailingList(object):
         self.name = list_name
 
     def __unicode__(self):
-        return u"<MailingList: %s>" % self.name
+        return "<MailingList: %s>" % self.name
 
     def __repr__(self):
         return "<MailingList: %s>" % self.name
@@ -329,7 +325,7 @@ class MadMimi(object):
         """
 
         # The YAML dump will fail if it encounters non-strings
-        for item, value in body.iteritems():
+        for item, value in body.items():
             body[item] = str(value)
 
         recipients = "%s <%s>" % (name, email)
@@ -354,7 +350,7 @@ class MadMimi(object):
         """
 
         # The YAML dump will fail if it encounters non-strings
-        for item, value in body.iteritems():
+        for item, value in body.items():
             body[item] = str(value)
 
         body = dump(body)

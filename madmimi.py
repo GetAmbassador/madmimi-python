@@ -192,7 +192,7 @@ class MadMimi(object):
         if params.get('sender'):
             params['from'] = params['sender']
 
-        return self.urlopen(url, urlencode(params)).read()
+        return self.urlopen(url, urlencode(params).encode('utf-8')).read()
 
     def lists(self, as_xml=False):
         """Get a list of audience lists.
@@ -255,7 +255,7 @@ class MadMimi(object):
         writer = csv.writer(csvdata)
         [writer.writerow(row) for row in contacts]
 
-        self._post('audience_members', csv_file=csvdata.getvalue().encode('utf-8'))
+        self._post('audience_members', csv_file=csvdata.getvalue())
 
     def subscribe(self, email, audience_list):
         """Add an audience member to an audience list.

@@ -255,7 +255,7 @@ class MadMimi(object):
         writer = csv.writer(csvdata)
         [writer.writerow(row) for row in contacts]
 
-        self._post('audience_members', csv_file=csvdata.getvalue())
+        self._post('audience_members', csv_file=csvdata.getvalue().encode('utf-8'))
 
     def subscribe(self, email, audience_list):
         """Add an audience member to an audience list.

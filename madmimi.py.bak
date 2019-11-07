@@ -192,7 +192,7 @@ class MadMimi(object):
         if params.get('sender'):
             params['from'] = params['sender']
 
-        return self.urlopen(url, urlencode(params).encode('utf-8')).read()
+        return self.urlopen(url, urlencode(params)).read()
 
     def lists(self, as_xml=False):
         """Get a list of audience lists.
@@ -325,7 +325,7 @@ class MadMimi(object):
         """
 
         # The YAML dump will fail if it encounters non-strings
-        for item, value in list(body.items()):
+        for item, value in body.items():
             body[item] = str(value)
 
         recipients = "%s <%s>" % (name, email)
@@ -350,7 +350,7 @@ class MadMimi(object):
         """
 
         # The YAML dump will fail if it encounters non-strings
-        for item, value in list(body.items()):
+        for item, value in body.items():
             body[item] = str(value)
 
         body = dump(body)

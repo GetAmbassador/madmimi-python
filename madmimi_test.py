@@ -34,18 +34,18 @@ __maintainer__ = 'jordan.bouvier@analytemedia.com (Jordan Bouvier)'
 from mock import Mock
 import datetime
 import unittest
-from urllib import urlencode
-from urllib import quote
-from urlparse import urlparse
+from urllib.parse import urlencode
+from urllib.parse import quote
+from urllib.parse import urlparse
 import yaml
 
 try:
-    from cStringIO import StringIO
+    from io import StringIO
 except ImportError:
-    from StringIO import StringIO
+    from io import StringIO
 
 try:
-    from urlparse import parse_qs
+    from urllib.parse import parse_qs
 except ImportError:
     from cgi import parse_qs
 
